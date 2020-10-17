@@ -3,14 +3,24 @@ import AsciiBar from 'ascii-bar'
 const TOTAL = 40;
 
 const bar = new AsciiBar({
-    undoneSymbol: "-",
-    doneSymbol: "x",
-    width: 30,
-    formatString: "##bright##blue#spinner##default#percent #bar Zeit: #elapsed + #ttf = #overall  #message",
+    undoneSymbol: "⋅",
+    doneSymbol: ">",
+    width: 20,
+    formatString: '#spinner #percent #bar',
     total: TOTAL,
     enableSpinner: true,
-    lastUpdateForTiming: false
+    lastUpdateForTiming: false,
+    autoStop: true,
+    print: true,
+    start: 0,
+    startDate: new Date().getTime(),
+    stream: process.stdout
 });
+
+bar.spinner = {
+    interval: 100,
+    frames: ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+}
 
 
 function simulateProgress(current) {
