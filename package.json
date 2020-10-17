@@ -1,7 +1,7 @@
 {
   "name": "ascii-bar",
   "version": "1.0.0",
-  "description": "A leightwight ascii progress bar for the nodejs console",
+  "description": "A lightweight ascii progress bar with spinner and colors",
   "main": "dist/AsciiBar.js",
   "scripts": {},
   "repository": {
