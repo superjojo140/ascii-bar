@@ -1,6 +1,6 @@
 export class AsciiBar {
     /**
-     * Format of the displayed statusbar
+     * Format of the displayed progressbar
      */
     public formatString = '#percent #bar';
 
@@ -238,7 +238,7 @@ export class AsciiBar {
 
 interface ProgressbarOptions {
     /**
-     * Format of the displayed statusbar
+     * Format of the displayed progressbar
      * Use serveral of this placeholders:
      * #bar #count #percent #overall #elapsed #ttf #message #spinner
      * And combine with serveral of this formatters:
