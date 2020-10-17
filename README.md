@@ -23,7 +23,7 @@ A lightweight ascii progress bar for the nodejs console
     bar.update(numberOfDoneThings,someInfoAboutCurrentTask);
 ````
 
-### Using with `import`
+#### Using with `import`
 
 ````javascript
     import AsciiBar from 'ascii-bar'
@@ -34,7 +34,7 @@ A lightweight ascii progress bar for the nodejs console
 ### Template string
 
 The `templateString` has the greatest influence on the appearance. It allows you to define which elements your status bar contains and how they are arranged.
-To use a special `templateStrin`´ use it as a parameter in the constructor:
+To use a special `templateString` use it as a parameter in the constructor:
 
 ````javascript
     const bar = new AsciiBar('#spinner #percent #bar Overall time: #overall ##blue #message');
@@ -81,12 +81,12 @@ You can also use a configuration object in the constructor:
     });
 ````
 
-For more detailed explanation off all these options have a look at the [AsciiBar.d.ts](dist/AsciiBar.d.ts)
+For more detailed explanation off all these options have a look at the [AsciiBar.d.ts](dist/AsciiBar.d.ts#L91)
 
 ### Spinner
 
 To use a spinner simply set the `enableSpinner: true` option in configuration object.
-Also use the `#spinner` placeholder in your template string
+Also use the `#spinner` placeholder in your template string.
 
 Minimal example:
 
@@ -99,7 +99,7 @@ Minimal example:
 
 #### Modify spinner
 
-You can also set a custom spinner:
+You can also set a [custom spinner](dist/AsciiBar.d.ts#L164):
 
 ````javascript
     bar.spinner = {
