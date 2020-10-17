@@ -4,12 +4,12 @@ A lightweight ascii progress bar for the nodejs console
 ## Why is it cool?
 
 - 🚀 Extremly lightweight (<10kB) and zero dependencies
-- 🖋️ Custom styling via templateString
-- 🔧 Extremly customisable (configure outout stream, timing calculation, spinner behavior,...)
-- ⭕ Fancy Spinner
+- ⭕ Fancy Spinners
 - 🌈 Unicode support (Emojis, special characters,...)
 - 🎨 Colors
+- 🖋️ Intuitive styling via templateString
 - ⏰ Calculation and pretty printing of overall progress time and time to finish
+- 🔧 Extremly customisable (configure output stream, timing calculation, spinner behavior,...)
 - 📖 Typescript types and documentation
 
 ## How to use
@@ -106,4 +106,30 @@ You can also set a [custom spinner](dist/AsciiBar.d.ts#L164):
         interval: 100,
         frames: ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
     }   
+````
+
+## API
+
+````javascript
+    /**
+     * update the progress. This will trigger re-rendering the progressbar
+     * @param current - the new absolute progress value
+     * @param message - [optional] update the message displayed at the #message placeholder
+     */
+    bar.update(current: number, message?: string)
+
+     /**
+     * Creates the progressbar string with all configured settings
+     * @returns a string representating the progressbar
+     */
+    bar.renderLine(): string 
+
+    /**
+     * Stop the progressbar
+     * This will stop the spinner and change it's symbol to a checkmark (if not disabled)
+     * Message will be changed to a string describing the elapsed time (if not disabled)
+     * This function will be triggered automatically if the progressbar reaches 100% (if not disabled)
+     * @param withInfo - wether to auto-update the progressbar's spinner and message after stopping
+     */
+    bar.stop(withInfo = true) 
 ````
