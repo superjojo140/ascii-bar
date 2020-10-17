@@ -1,0 +1,33 @@
+{
+  "name": "ascii-bar",
+  "version": "0.1.0",
+  "description": "A leightwight ascii progress bar for the nodejs console",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superjojo140/ascii-bar.git"
+  },
+  "keywords": [
+    "ascii",
+    "progress",
+    "bar",
+    "console",
+    "node",
+    "stdout",
+    "progressbar",
+    "cli"
+  ],
+  "author": "superjojo140",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/superjojo140/ascii-bar/issues"
+  },
+  "homepage": "https://github.com/superjojo140/ascii-bar#readme",
+  "devDependencies": {
+    "@types/node": "^14.11.10",
+    "typescript": "^4.0.3"
+  }
+}
