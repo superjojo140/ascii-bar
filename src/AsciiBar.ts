@@ -1,4 +1,4 @@
-export class AsciiBar {
+export default class AsciiBar {
     /**
      * Format of the displayed progressbar
      */

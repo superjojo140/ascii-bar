@@ -1,7 +1,7 @@
 /// <reference types="node" />
-export declare class AsciiBar {
+export default class AsciiBar {
     /**
-     * Format of the displayed statusbar
+     * Format of the displayed progressbar
      */
     formatString: string;
     /**
@@ -90,7 +90,7 @@ export declare class AsciiBar {
 }
 interface ProgressbarOptions {
     /**
-     * Format of the displayed statusbar
+     * Format of the displayed progressbar
      * Use serveral of this placeholders:
      * #bar #count #percent #overall #elapsed #ttf #message #spinner
      * And combine with serveral of this formatters:

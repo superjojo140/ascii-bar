@@ -4,7 +4,7 @@ var AsciiBar = /** @class */ (function () {
     function AsciiBar(options) {
         var _this = this;
         /**
-         * Format of the displayed statusbar
+         * Format of the displayed progressbar
          */
         this.formatString = '#percent #bar';
         /**
@@ -221,7 +221,7 @@ var AsciiBar = /** @class */ (function () {
     };
     return AsciiBar;
 }());
-exports.AsciiBar = AsciiBar;
+exports.default = AsciiBar;
 //ColorCodes from https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color
 var colorCodes = {
     Reset: "\x1b[0m",
