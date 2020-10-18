@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A lightweight ascii progress bar with spinner and colors",
   "main": "dist/AsciiBar.js",
+  "types": "dist/AsciiBar.d.ts",
   "scripts": {},
   "repository": {
     "type": "git",
