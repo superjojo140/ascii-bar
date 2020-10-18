@@ -14,6 +14,14 @@ A lightweight ascii progress bar for the nodejs console
 
 ## How to use
 
+#### Installation
+
+````shell
+    npm install ascii-bar
+````
+
+#### Basic Usage
+
 ````javascript
     const AsciiBar = require('ascii-bar').default;
 
@@ -28,6 +36,8 @@ A lightweight ascii progress bar for the nodejs console
 ````javascript
     import AsciiBar from 'ascii-bar'
 ````
+
+For more examples see [examples folder](/examples).
 
 ## Configuration
 
