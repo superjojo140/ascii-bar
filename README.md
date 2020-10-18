@@ -1,15 +1,24 @@
 # ascii-bar
-A lightweight ascii progress bar for the nodejs console
+
+
+- [How to use](#how-to-use)
+- [Configuration](#configuration)
+    - [Template String](#template-string)
+    - [Options](#options)
+    - [Spinner](#spinner)
+- [API Methods and properties](#api-methods-and-properties)
+    - [Methods](#methods)
+    - [Properties](#properties)
 
 ## Why is it cool?
 
-- 🚀 Extremly lightweight (<10kB) and zero dependencies
+- 🚀 Extreme lightweight (<10kB) and zero dependencies
 - ⭕ Fancy Spinners
 - 🌈 Unicode support (Emojis, special characters,...)
 - 🎨 Colors
 - 🖋️ Intuitive styling via templateString
 - ⏰ Calculation and pretty printing of overall progress time and time to finish
-- 🔧 Extremly customisable (configure output stream, timing calculation, spinner behavior,...)
+- 🔧 Extreme customizable (configure output stream, timing calculation, spinner behavior,...)
 - 📖 Typescript types and documentation
 
 ## How to use
@@ -53,8 +62,8 @@ You can use and mix the following placeholders and modificators:
 
 | Placeholder | Description                         | Example             |
 |-------------|-------------------------------------|---------------------|
-| #bar        | The visualised progress bar         | [>>>>>>>>------]    |
-| #count      | Count of done tasks and total taksk | [12/42]             |
+| #bar        | The visualized progress bar         | [>>>>>>>>------]    |
+| #count      | Count of done tasks and total tasks | [12/42]             |
 | #percent    | Percentage of done tasks            | 30%                 |
 | #overall    | Estimated overall time              | 1h 12m              |
 | #elapsed    | Elapsed time                        | 1d 2h 34m           |
@@ -67,10 +76,10 @@ You can use and mix the following placeholders and modificators:
 | ##red       | red text                            | <span style="color:red;">red text  </span>           |
 | ##yellow    | yellow text                         | <span style="color:yellow;">yellow text  </span>        |
 | ##bright    | bright text                         | <span style="color:lightblue;">bright blue text </span>    |
-| ##dim       | dimmed text                         | <span style="color:darkgreen;">dimmmed green text  </span> |
+| ##dim       | dimmed text                         | <span style="color:darkgreen;">dimmed green text  </span> |
 
 
-### More Configuration
+### Options
 
 You can also use a configuration object in the constructor:
 
@@ -118,7 +127,9 @@ You can also set a [custom spinner](dist/AsciiBar.d.ts#L164):
     }   
 ````
 
-## API
+## API Methods and properties
+
+### Methods
 
 ````javascript
     /**
@@ -142,4 +153,73 @@ You can also set a [custom spinner](dist/AsciiBar.d.ts#L164):
      * @param withInfo - wether to auto-update the progressbar's spinner and message after stopping
      */
     bar.stop(withInfo = true) 
+````
+
+
+### Properties
+
+All of this properties can be changed (even while the progressbar is running).
+
+E.g. to set a new message text do:
+
+````javascript
+    bar.message = "SomeNewText";
+````
+
+````javascript
+    /**
+     * Format of the displayed progressbar
+     */
+    public formatString = '#percent #bar';
+
+    /**
+    * Number of steps to finish progress
+    */
+    public total = 100;
+
+    /**
+     * Startdate to calculate elapsed time (in milliseconds)
+     */
+    public startDate = new Date().getTime();
+
+    /**
+     * Which time span to use for timing calculation - If you are unsure always use false here!
+     */
+    public lastUpdateForTiming = false;
+
+    /**
+     * Width of the progress bar (only the #bar part)
+     */
+    public width = 20;
+
+    /**
+    * Symbol for the done progress in the #bar part
+    */
+    public doneSymbol = ">";
+
+    /**
+    * Symbol for the undone progress in the #bar part
+    */
+    public undoneSymbol = "⋅";
+
+    /**
+    * Wether to print to configured stream or not
+    */
+    public print = true;
+
+    /**
+     * A spinner object describing how the spinner looks like
+     * Change this for another spinner
+     */
+    public spinner = defaultSpinner;
+
+    /**
+     * The message displayed at the #message placeholder
+     */
+    public message = "";
+
+    /**
+    * wether to call progressbar's stop() function automatically if the progress reaches 100%
+    */
+    public autoStop = true;
 ````
