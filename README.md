@@ -1,6 +1,6 @@
 # ascii-bar
 
-![screenshot](https://github.com/superjojo140/ascii-bar/blob/main/example/screenshot.svg)
+![screenshot](https://raw.githubusercontent.com/superjojo140/ascii-bar/main/example/screenshot.svg)
 
 - [How to use](#how-to-use)
 - [Configuration](#configuration)
