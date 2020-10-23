@@ -1,5 +1,6 @@
 # ascii-bar
 
+![screenshot](https://github.com/superjojo140/ascii-bar/blob/main/ascii-bar.gif)
 
 - [How to use](#how-to-use)
 - [Configuration](#configuration)
@@ -12,10 +13,10 @@
 
 ## Why is it cool?
 
-- 🚀 Extreme lightweight (<10kB) and zero dependencies
+- 🚀 Extreme lightweight (<50kB) and zero dependencies
 - ⭕ Fancy Spinners
-- 🌈 Unicode support (Emojis, special characters,...)
 - 🎨 Colors
+- 🌈 Unicode / Emoji support (if your terminal supports unicode)
 - 🖋️ Intuitive styling via templateString
 - ⏰ Calculation and pretty printing of overall progress time and time to finish
 - 🔧 Extreme customizable (configure output stream, timing calculation, spinner behavior,...)
@@ -46,7 +47,7 @@
     import AsciiBar from 'ascii-bar'
 ````
 
-For more examples see [examples folder](/examples).
+For more examples see [examples folder](https://github.com/superjojo140/ascii-bar/tree/main/example).
 
 ## Configuration
 
@@ -104,7 +105,7 @@ For more detailed explanation off all these options have a look at the [AsciiBar
 
 ### Spinner
 
-To use a spinner simply set the `enableSpinner: true` option in configuration object.
+To use a spinner simply set the `enableSpinner` option to `true`.
 Also use the `#spinner` placeholder in your template string.
 
 Minimal example:
@@ -112,7 +113,7 @@ Minimal example:
 ````javascript
     const bar = new AsciiBar({
         formatString: '#spinner #percent #bar',
-        enableSpinner: false
+        enableSpinner: true
     });
 ````
 
