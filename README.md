@@ -86,7 +86,7 @@ You can also use a configuration object in the constructor:
 
 ````javascript
     const bar = new AsciiBar({
-        undoneSymbol: "⋅",
+        undoneSymbol: "-",
         doneSymbol: ">",
         width: 20,
         formatString: '#percent #bar',
@@ -202,7 +202,7 @@ E.g. to set a new message text do:
     /**
     * Symbol for the undone progress in the #bar part
     */
-    public undoneSymbol = "⋅";
+    public undoneSymbol = "-";
 
     /**
     * Wether to print to configured stream or not

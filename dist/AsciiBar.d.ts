@@ -131,7 +131,7 @@ interface ProgressbarOptions {
     doneSymbol?: string;
     /**
      * Symbol for the undone progress in the #bar part
-     * @default '⋅'
+     * @default '-'
      */
     undoneSymbol?: string;
     /**

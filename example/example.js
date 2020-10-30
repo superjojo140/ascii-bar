@@ -3,8 +3,6 @@ const AsciiBar = require('ascii-bar').default;
 const TOTAL = 40;
 
 const bar = new AsciiBar({
-    undoneSymbol: "-",
-    doneSymbol: "x",
     width: 30,
     formatString: "##bright##blue#spinner##default#percent #bar Zeit: #elapsed + #ttf = #overall  #message",
     total: TOTAL,

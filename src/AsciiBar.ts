@@ -32,7 +32,7 @@ export default class AsciiBar {
     /**
     * Symbol for the undone progress in the #bar part
     */
-    public undoneSymbol = "⋅";
+    public undoneSymbol = "-";
 
     /**
     * Wether to print to configured stream or not
@@ -89,6 +89,11 @@ export default class AsciiBar {
                 this.current = options.start;
             }
 
+            //use simple spinner on windows
+            if (process.platform === 'win32') {
+                this.spinner = simpleSpinner;
+            }
+
             //enable spinner
             if (this.enableSpinner) {
                 this.spinnerTimeout = setTimeout(this.updateSpinner, this.spinner.interval);
@@ -130,7 +135,7 @@ export default class AsciiBar {
         line += colorCodes.Reset;
 
         //Hide cursor
-        if(this.hideCursor){
+        if (this.hideCursor) {
             line = colorCodes.HideCursor + line;
         }
 
@@ -235,6 +240,7 @@ export default class AsciiBar {
         if (withInfo) {
             //change spinner to checkmark
             this.currentSpinnerSymbol = colorCodes.Green + colorCodes.Bright + "✓" + colorCodes.Reset;
+            if (process.platform === 'win32') { this.currentSpinnerSymbol = "OK " };
             //set overalltime to really elapsed time
             this.overallTime = this.elapsed;
             this.message = `Finished in ${this.formatTime(this.overallTime)}`
@@ -292,7 +298,7 @@ interface ProgressbarOptions {
 
     /**
      * Symbol for the undone progress in the #bar part
-     * @default '⋅'
+     * @default '-'
      */
     undoneSymbol?: string;
 
@@ -331,11 +337,11 @@ interface ProgressbarOptions {
      */
     autoStop?: boolean;
 
-     /**
-     * wether to hide the terminal's cursor while displaying the progress bar
-     * cursor will be re-enabled by the bar.stop() function
-     * @default false
-     */
+    /**
+    * wether to hide the terminal's cursor while displaying the progress bar
+    * cursor will be re-enabled by the bar.stop() function
+    * @default false
+    */
     hideCursor?: boolean;
 }
 
@@ -358,13 +364,18 @@ const colorCodes = {
     Cyan: "\x1b[36m",
     White: "\x1b[37m",
 
-    HideCursor : "\x1B[?25l",
-    ShowCursor : "\x1B[?25h",
+    HideCursor: "\x1B[?25l",
+    ShowCursor: "\x1B[?25h",
 }
 
 let defaultSpinner: Spinner = {
     interval: 120,
     frames: ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+}
+
+let simpleSpinner: Spinner = {
+    interval: 120,
+    frames: ["-", "\\", "|", "/"]
 }
 
 interface Spinner {

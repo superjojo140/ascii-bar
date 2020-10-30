@@ -30,7 +30,7 @@ var AsciiBar = /** @class */ (function () {
         /**
         * Symbol for the undone progress in the #bar part
         */
-        this.undoneSymbol = "⋅";
+        this.undoneSymbol = "-";
         /**
         * Wether to print to configured stream or not
         */
@@ -86,6 +86,10 @@ var AsciiBar = /** @class */ (function () {
             //set start value
             if (options.start) {
                 this.current = options.start;
+            }
+            //use simple spinner on windows
+            if (process.platform === 'win32') {
+                this.spinner = simpleSpinner;
             }
             //enable spinner
             if (this.enableSpinner) {
@@ -219,6 +223,10 @@ var AsciiBar = /** @class */ (function () {
         if (withInfo) {
             //change spinner to checkmark
             this.currentSpinnerSymbol = colorCodes.Green + colorCodes.Bright + "✓" + colorCodes.Reset;
+            if (process.platform === 'win32') {
+                this.currentSpinnerSymbol = "OK ";
+            }
+            ;
             //set overalltime to really elapsed time
             this.overallTime = this.elapsed;
             this.message = "Finished in " + this.formatTime(this.overallTime);
@@ -253,4 +261,8 @@ var colorCodes = {
 var defaultSpinner = {
     interval: 120,
     frames: ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+};
+var simpleSpinner = {
+    interval: 120,
+    frames: ["-", "\\", "|", "/"]
 };
