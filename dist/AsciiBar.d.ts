@@ -166,7 +166,8 @@ interface ProgressbarOptions {
     autoStop?: boolean;
     /**
     * wether to hide the terminal's cursor while displaying the progress bar
-    * @default true
+    * cursor will be re-enabled by the bar.stop() function
+    * @default false
     */
     hideCursor?: boolean;
 }

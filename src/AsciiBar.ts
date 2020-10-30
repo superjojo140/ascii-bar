@@ -58,7 +58,7 @@ export default class AsciiBar {
     /**
     * wether to hide the terminal's cursor while displaying the progress bar
     */
-    public hideCursor = true;
+    public hideCursor = false;
 
     private elapsed = 0;
     private lastUpdate = new Date().getTime();
@@ -333,7 +333,8 @@ interface ProgressbarOptions {
 
      /**
      * wether to hide the terminal's cursor while displaying the progress bar
-     * @default true
+     * cursor will be re-enabled by the bar.stop() function
+     * @default false
      */
     hideCursor?: boolean;
 }

@@ -51,7 +51,7 @@ var AsciiBar = /** @class */ (function () {
         /**
         * wether to hide the terminal's cursor while displaying the progress bar
         */
-        this.hideCursor = true;
+        this.hideCursor = false;
         this.elapsed = 0;
         this.lastUpdate = new Date().getTime();
         this.timeToFinish = 0;

@@ -10,6 +10,7 @@ const bar = new AsciiBar({
     total: TOTAL,
     enableSpinner: true,
     lastUpdateForTiming: false,
+    hideCursor: true,
 });
 
 

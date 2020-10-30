@@ -98,7 +98,7 @@ You can also use a configuration object in the constructor:
         start: 0,
         startDate: new Date().getTime(),
         stream: process.stdout,
-        hideCursor: true,
+        hideCursor: false,
     });
 ````
 
@@ -227,7 +227,8 @@ E.g. to set a new message text do:
 
       /**
      * wether to hide the terminal's cursor while displaying the progress bar
-     * @default true
+     * cursor will be re-enabled by the bar.stop() function
+     * @default false
      */
     hideCursor?: boolean;
 ````
