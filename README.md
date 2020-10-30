@@ -13,11 +13,11 @@
 
 ## Why is it cool?
 
-- 🚀 Extreme lightweight (<50kB) and zero dependencies
-- ⭕ Fancy Spinners (automatic ascii fallback for windows)
-- 🎨 Colors and Emoji support (if your terminal can display this)
-- 🖋️ Intuitive styling via templateString
-- ⏰ Calculation and pretty printing of overall progress time and time to finish
+- 🚀 Extreme **lightweight** (<50kB) and **zero dependencies**
+- ⭕ **Fancy Spinners** (automatic ascii fallback for windows)
+- 🎨 **Colors** and Emoji support (if your terminal can display this)
+- 🖋️ Intuitive styling via **templateString**
+- ⏰ Calculation and pretty printing of overall progress time and **time to finish**
 - 🔧 Extreme customizable (configure output stream, timing calculation, spinner behavior,...)
 - 📖 Typescript types and documentation
 
@@ -107,6 +107,8 @@ For more detailed explanation off all these options have a look at the [AsciiBar
 
 ![Screenshot - made with termToSvg](https://raw.githubusercontent.com/superjojo140/ascii-bar/main/example/spinner.svg)
 
+#### Use a spinner
+
 To use a spinner simply set the `enableSpinner` option to `true`.
 Also use the `#spinner` placeholder in your template string.
 
@@ -121,7 +123,7 @@ Minimal example:
 
 #### Modify spinner
 
-You can also set a [custom spinner](dist/AsciiBar.d.ts#L164):
+You can also set a [custom spinner](dist/AsciiBar.d.ts#L164)   
 For more spinner inspiration see [cli-spinners](https://www.npmjs.com/package/cli-spinners)
 
 ````javascript
