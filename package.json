@@ -1,7 +1,7 @@
 {
   "name": "ascii-bar",
-  "version": "1.0.2",
-  "description": "A lightweight ascii progress bar with spinner and colors",
+  "version": "1.0.3",
+  "description": "A zero dependency ascii progress bar with spinner, colors and typescript support",
   "main": "dist/AsciiBar.js",
   "types": "dist/AsciiBar.d.ts",
   "scripts": {},

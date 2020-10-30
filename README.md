@@ -14,9 +14,8 @@
 ## Why is it cool?
 
 - 🚀 Extreme lightweight (<50kB) and zero dependencies
-- ⭕ Fancy Spinners
-- 🎨 Colors
-- 🌈 Unicode / Emoji support (automatic ascii fallback for windows)
+- ⭕ Fancy Spinners (automatic ascii fallback for windows)
+- 🎨 Colors and Emoji support (if your terminal can display this)
 - 🖋️ Intuitive styling via templateString
 - ⏰ Calculation and pretty printing of overall progress time and time to finish
 - 🔧 Extreme customizable (configure output stream, timing calculation, spinner behavior,...)
