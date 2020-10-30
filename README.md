@@ -16,7 +16,7 @@
 - 🚀 Extreme lightweight (<50kB) and zero dependencies
 - ⭕ Fancy Spinners
 - 🎨 Colors
-- 🌈 Unicode / Emoji support (if your terminal supports unicode)
+- 🌈 Unicode / Emoji support (automatic ascii fallback for windows)
 - 🖋️ Intuitive styling via templateString
 - ⏰ Calculation and pretty printing of overall progress time and time to finish
 - 🔧 Extreme customizable (configure output stream, timing calculation, spinner behavior,...)
@@ -106,6 +106,8 @@ For more detailed explanation off all these options have a look at the [AsciiBar
 
 ### Spinner
 
+![Screenshot - made with termToSvg](https://raw.githubusercontent.com/superjojo140/ascii-bar/main/example/spinner.svg)
+
 To use a spinner simply set the `enableSpinner` option to `true`.
 Also use the `#spinner` placeholder in your template string.
 
@@ -121,6 +123,7 @@ Minimal example:
 #### Modify spinner
 
 You can also set a [custom spinner](dist/AsciiBar.d.ts#L164):
+For more spinner inspiration see [cli-spinners](https://www.npmjs.com/package/cli-spinners)
 
 ````javascript
     bar.spinner = {

@@ -368,12 +368,12 @@ const colorCodes = {
     ShowCursor: "\x1B[?25h",
 }
 
-let defaultSpinner: Spinner = {
+export let defaultSpinner: Spinner = {
     interval: 120,
     frames: ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
 }
 
-let simpleSpinner: Spinner = {
+export let simpleSpinner: Spinner = {
     interval: 120,
     frames: ["-", "\\", "|", "/"]
 }

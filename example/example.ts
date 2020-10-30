@@ -1,12 +1,13 @@
 import AsciiBar from 'ascii-bar'
+import { simpleSpinner } from "ascii-bar"
 
-const TOTAL = 40;
+const TOTAL = 50;
 
 const bar = new AsciiBar({
     undoneSymbol: "⋅",
     doneSymbol: ">",
     width: 20,
-    formatString: '#spinner #percent #bar',
+    formatString: "     #spinner I'm a dotty spinner",
     total: TOTAL,
     enableSpinner: true,
     lastUpdateForTiming: false,
@@ -14,16 +15,24 @@ const bar = new AsciiBar({
     print: true,
     start: 0,
     startDate: new Date().getTime(),
-    stream: process.stdout
+    stream: process.stdout,
+    hideCursor:true,
 });
 
-bar.spinner = {
-    interval: 100,
-    frames: ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
-}
+
 
 
 function simulateProgress(current) {
+    if (current > 24) {
+        bar.spinner = simpleSpinner;
+        bar.formatString =  "     #spinner I'm a simple spinner"
+    }
+
+    if (current >= TOTAL) {
+        bar.stop(false);
+        return;
+    }
+
     if (current <= TOTAL) {
         bar.update(current, "Currently at " + current);
         setTimeout(() => simulateProgress(current + 1), 200);

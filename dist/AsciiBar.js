@@ -39,7 +39,7 @@ var AsciiBar = /** @class */ (function () {
          * A spinner object describing how the spinner looks like
          * Change this for another spinner
          */
-        this.spinner = defaultSpinner;
+        this.spinner = exports.defaultSpinner;
         /**
          * The message displayed at the #message placeholder
          */
@@ -89,7 +89,7 @@ var AsciiBar = /** @class */ (function () {
             }
             //use simple spinner on windows
             if (process.platform === 'win32') {
-                this.spinner = simpleSpinner;
+                this.spinner = exports.simpleSpinner;
             }
             //enable spinner
             if (this.enableSpinner) {
@@ -258,11 +258,11 @@ var colorCodes = {
     HideCursor: "\x1B[?25l",
     ShowCursor: "\x1B[?25h",
 };
-var defaultSpinner = {
+exports.defaultSpinner = {
     interval: 120,
     frames: ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
 };
-var simpleSpinner = {
+exports.simpleSpinner = {
     interval: 120,
     frames: ["-", "\\", "|", "/"]
 };

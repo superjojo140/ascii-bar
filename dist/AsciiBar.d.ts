@@ -171,6 +171,8 @@ interface ProgressbarOptions {
     */
     hideCursor?: boolean;
 }
+export declare let defaultSpinner: Spinner;
+export declare let simpleSpinner: Spinner;
 interface Spinner {
     /**
      * Number of milliseconds to update to the next spinner frame
