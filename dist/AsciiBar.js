@@ -48,6 +48,10 @@ var AsciiBar = /** @class */ (function () {
         * wether to call progressbar's stop() function automatically if the progress reaches 100%
         */
         this.autoStop = true;
+        /**
+        * wether to hide the terminal's cursor while displaying the progress bar
+        */
+        this.hideCursor = true;
         this.elapsed = 0;
         this.lastUpdate = new Date().getTime();
         this.timeToFinish = 0;
@@ -123,6 +127,10 @@ var AsciiBar = /** @class */ (function () {
         //Colors :-)
         line = line.replace(/##default/g, colorCodes.Reset).replace(/##green/g, colorCodes.Green).replace(/##blue/g, colorCodes.Blue).replace(/##red/g, colorCodes.Red).replace(/##yellow/g, colorCodes.Yellow).replace(/##bright/g, colorCodes.Bright).replace(/##dim/g, colorCodes.Dim);
         line += colorCodes.Reset;
+        //Hide cursor
+        if (this.hideCursor) {
+            line = colorCodes.HideCursor + line;
+        }
         return line;
     };
     /**
@@ -216,8 +224,8 @@ var AsciiBar = /** @class */ (function () {
             this.message = "Finished in " + this.formatTime(this.overallTime);
             this.printLine();
         }
-        //add newline
-        console.log();
+        //add newline and re-enable cursor
+        console.log(this.hideCursor ? colorCodes.ShowCursor : "");
     };
     return AsciiBar;
 }());
@@ -239,6 +247,8 @@ var colorCodes = {
     Magenta: "\x1b[35m",
     Cyan: "\x1b[36m",
     White: "\x1b[37m",
+    HideCursor: "\x1B[?25l",
+    ShowCursor: "\x1B[?25h",
 };
 var defaultSpinner = {
     interval: 120,

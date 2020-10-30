@@ -1,6 +1,6 @@
 # ascii-bar
 
-![screenshot](https://raw.githubusercontent.com/superjojo140/ascii-bar/main/example/screenshot.svg)
+![Screenshot - made with termToSvg](https://raw.githubusercontent.com/superjojo140/ascii-bar/main/example/screenshot.svg)
 
 - [How to use](#how-to-use)
 - [Configuration](#configuration)
@@ -97,7 +97,8 @@ You can also use a configuration object in the constructor:
         print: true,
         start: 0,
         startDate: new Date().getTime(),
-        stream: process.stdout
+        stream: process.stdout,
+        hideCursor: true,
     });
 ````
 
@@ -223,4 +224,10 @@ E.g. to set a new message text do:
     * wether to call progressbar's stop() function automatically if the progress reaches 100%
     */
     public autoStop = true;
+
+      /**
+     * wether to hide the terminal's cursor while displaying the progress bar
+     * @default true
+     */
+    hideCursor?: boolean;
 ````

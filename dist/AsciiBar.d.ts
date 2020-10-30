@@ -45,6 +45,10 @@ export default class AsciiBar {
     * wether to call progressbar's stop() function automatically if the progress reaches 100%
     */
     autoStop: boolean;
+    /**
+    * wether to hide the terminal's cursor while displaying the progress bar
+    */
+    hideCursor: boolean;
     private elapsed;
     private lastUpdate;
     private timeToFinish;
@@ -160,6 +164,11 @@ interface ProgressbarOptions {
      * @default true
      */
     autoStop?: boolean;
+    /**
+    * wether to hide the terminal's cursor while displaying the progress bar
+    * @default true
+    */
+    hideCursor?: boolean;
 }
 interface Spinner {
     /**

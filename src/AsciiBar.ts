@@ -55,6 +55,11 @@ export default class AsciiBar {
     */
     public autoStop = true;
 
+    /**
+    * wether to hide the terminal's cursor while displaying the progress bar
+    */
+    public hideCursor = true;
+
     private elapsed = 0;
     private lastUpdate = new Date().getTime();
     private timeToFinish = 0;
@@ -124,6 +129,11 @@ export default class AsciiBar {
         line = line.replace(/##default/g, colorCodes.Reset).replace(/##green/g, colorCodes.Green).replace(/##blue/g, colorCodes.Blue).replace(/##red/g, colorCodes.Red).replace(/##yellow/g, colorCodes.Yellow).replace(/##bright/g, colorCodes.Bright).replace(/##dim/g, colorCodes.Dim);
         line += colorCodes.Reset;
 
+        //Hide cursor
+        if(this.hideCursor){
+            line = colorCodes.HideCursor + line;
+        }
+
         return line;
     }
 
@@ -170,7 +180,7 @@ export default class AsciiBar {
      * Updates the spinner if enabled
      */
     private updateSpinner = () => {
-        if (this.spinner.currentFrame === undefined) { this.spinner.currentFrame = 0}
+        if (this.spinner.currentFrame === undefined) { this.spinner.currentFrame = 0 }
         this.spinner.currentFrame = (this.spinner.currentFrame + 1) % this.spinner.frames.length;
         this.currentSpinnerSymbol = this.spinner.frames[this.spinner.currentFrame];
         this.printLine();
@@ -231,8 +241,8 @@ export default class AsciiBar {
             this.printLine();
         }
 
-        //add newline
-        console.log();
+        //add newline and re-enable cursor
+        console.log(this.hideCursor ? colorCodes.ShowCursor : "");
     }
 }
 
@@ -320,6 +330,12 @@ interface ProgressbarOptions {
      * @default true
      */
     autoStop?: boolean;
+
+     /**
+     * wether to hide the terminal's cursor while displaying the progress bar
+     * @default true
+     */
+    hideCursor?: boolean;
 }
 
 //ColorCodes from https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color
@@ -340,6 +356,9 @@ const colorCodes = {
     Magenta: "\x1b[35m",
     Cyan: "\x1b[36m",
     White: "\x1b[37m",
+
+    HideCursor : "\x1B[?25l",
+    ShowCursor : "\x1B[?25h",
 }
 
 let defaultSpinner: Spinner = {

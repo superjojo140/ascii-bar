@@ -9,7 +9,7 @@ const bar = new AsciiBar({
     formatString: "##bright##blue#spinner##default#percent #bar Zeit: #elapsed + #ttf = #overall  #message",
     total: TOTAL,
     enableSpinner: true,
-    lastUpdateForTiming: false
+    lastUpdateForTiming: false,
 });
 
 
